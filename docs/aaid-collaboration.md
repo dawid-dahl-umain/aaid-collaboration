@@ -16,16 +16,12 @@
 - [Summary](#summary)
 - [Resources](#resources)
 
----
-
 ## Purpose
 
 This document defines the core architectural rules for AAID workflows. Use it when:
 
 - **Creating new workflows** (Refactoring, Requirements Gathering, etc.)
 - **Improving existing workflows** (TDD, Acceptance Testing)
-
----
 
 ## Glossary (Ubiquitous Language)
 
@@ -43,8 +39,6 @@ This document defines the core architectural rules for AAID workflows. Use it wh
 | **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                             |
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
 | **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal flow patterns.                                                                                    |
-
----
 
 ## The Four Core AAID Rules
 
@@ -213,8 +207,6 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 | **Rule 4** | Do all phases within this workflow use identical markdown structure in the rules file? | ☐   |
 |            | Are the section headers consistent across all phases within this workflow?             | ☐   |
 
----
-
 ## Contributing to AAID
 
 ### Creating a New Workflow
@@ -279,8 +271,6 @@ Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition poin
 2. **Show before/after** (diagram updates, rules file changes)
 3. **Validate consistency**: If changing one phase, must others change too? (Rules 2 & 4 require consistency)
 
----
-
 ## Summary
 
 AAID workflows follow four rules:
@@ -293,9 +283,9 @@ AAID workflows follow four rules:
 Follow these → AAID-style ✅  
 Break these → Something else ❌
 
----
-
 ## Resources
 
-- [Main AAID Guide](link) | [TDD Diagram](link) | [AT Diagram](link)
-- [Discussion Forum](link) | [Demo Repository](link)
+- [Main AAID Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)
+- [TDD Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/aaid-workflow-diagram.mermaid)
+- [AT Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/appendices/appendix-a/aaid-at-workflow.diagram.mermaid)
+- [Demo Repository](https://github.com/dawid-dahl-umain/augmented-ai-development-demo)
