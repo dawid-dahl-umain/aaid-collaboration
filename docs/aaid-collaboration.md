@@ -30,7 +30,7 @@ This document defines the core architectural rules for `AAID` workflows. Use it 
 | **`AAID` Workflow**             | A complete development process (like TDD or Acceptance Testing) that follows the four `AAID` rules. Contains both Stages and Phases.                                                                                         |
 | **Stage**                       | A step in the workflow using collaborative mode where developer and AI have flexible, conversational back-and-forth to understand, plan, and align.                                                                          |
 | **Phase**                       | A step in the workflow using disciplined mode where AI follows strict rules, mandatory sequences, and must stop for review after each phase. Phases exist within a Stage (e.g., Stage 4 contains RED/GREEN/REFACTOR phases). |
-| **Internal Phase Pattern**      | The sequential substeps that happen inside each phase (e.g., `Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW`). All phases within a workflow must use the same pattern.          |
+| **Internal Phase Pattern**      | The sequential substeps that happen inside each phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same pattern.                                                       |
 | **Transition Point**            | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules.                                 |
 | **Collaborative Mode**          | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. AI can iterate freely with the developer.                                                                                 |
 | **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                      |
@@ -91,31 +91,31 @@ The sequential steps AI goes through INSIDE each phase (visible as substeps in w
 **`AAID` TDD Internal Pattern:**
 
 ```text
-Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW
+Collaborate → Verify → Handle Issues → Review
 ```
 
-| Phase       | Collaborate and generate with AI | Run tests                         | Handle potential issues       | Review               |
-| ----------- | -------------------------------- | --------------------------------- | ----------------------------- | -------------------- |
-| 🔴 RED      | Write failing test               | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
-| 🟢 GREEN    | Write minimal code               | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
-| 🧼 REFACTOR | Improve code quality             | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
+| Phase       | Collaborate          | Verify                            | Handle Issues                 | Review               |
+| ----------- | -------------------- | --------------------------------- | ----------------------------- | -------------------- |
+| 🔴 RED      | Write failing test   | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
+| 🟢 GREEN    | Write minimal code   | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
+| 🧼 REFACTOR | Improve code quality | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
 
 **`AAID` AT (Acceptance Testing) Internal Pattern:**
 
 ```text
-Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW
+Collaborate → Verify → Handle Issues → Review
 ```
 
-| Phase      | Collaborate and generate with AI | Run tests                     | Handle potential issues      | Review               |
-| ---------- | -------------------------------- | ----------------------------- | ---------------------------- | -------------------- |
-| 🔴 Phase 1 | Map BDD to DSL                   | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
-| 🟢 Phase 2 | Implement driver                 | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
-| 🧼 Phase 3 | Refine & validate isolation      | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| Phase      | Collaborate                 | Verify                        | Handle Issues                | Review               |
+| ---------- | --------------------------- | ----------------------------- | ---------------------------- | -------------------- |
+| 🔴 Phase 1 | Map BDD to DSL              | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
+| 🟢 Phase 2 | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| 🧼 Phase 3 | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` Refactoring might use a different pattern:**
+**`AAID` Legacy Code might use a different pattern:**
 
 ```text
-Prepare → Transform → Check → Review
+Seam → Characterize → Verify → Transform
 ```
 
 (This is hypothetical - the point is each workflow can define its own structure)
