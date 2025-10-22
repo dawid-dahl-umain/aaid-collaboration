@@ -137,7 +137,7 @@ Seam → Characterize → Verify → Transform
 
 ### Rule 3: Technology Agnosticism
 
-**The Rule:** `AAID` never mandates specific tools, frameworks, or libraries.
+**The Rule:** `AAID` must never mandate specific tools, frameworks, libraries, or architectures.
 
 **Why:** Teams must choose technical implementations based on their context.
 
