@@ -147,6 +147,8 @@ Seam → Characterize → Verify → Transform
 | "Choose a protocol driver (REST, GraphQL, CLI)" | "Use Supertest for API testing" |
 | "Run your build pipeline"                       | "Run npm build"                 |
 | "Commit to version control"                     | "Commit to Git"                 |
+| "Separate business logic from infrastructure"   | "Use Hexagonal Architecture"    |
+| "Organize code with clear boundaries"           | "Use MVC pattern"               |
 
 **Principle:** `AAID` operates at _workflow_ level, not _tool_ level.
 
