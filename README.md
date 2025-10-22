@@ -29,3 +29,7 @@ Guidelines for collaborating on existing or new `AAID` workflows.
   - **Instructions File**: _TODO_
   - **Workflow Diagram**: _TODO_
   - **Article**: _TODO_
+
+## Links
+
+- Main `AAID` repo: [Link](https://github.com/dawid-dahl-umain/augmented-ai-development)
