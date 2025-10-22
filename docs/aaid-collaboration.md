@@ -20,8 +20,8 @@
 
 This document defines the core architectural rules for AAID workflows. Use it when:
 
-- **Creating new workflows** (Refactoring, Requirements Gathering, etc.)
-- **Improving existing workflows** (TDD, Acceptance Testing)
+- **Creating new workflows**
+- **Improving existing workflows**
 
 ## Glossary (Ubiquitous Language)
 
