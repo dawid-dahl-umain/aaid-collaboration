@@ -1,16 +1,16 @@
-# AAID Collaboration Guidelines
+# `AAID` Collaboration Guidelines
 
 ## Table of Contents
 
 - [Purpose](#purpose)
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
-- [The Four Core AAID Rules](#the-four-core-aaid-rules)
+- [The Four Core `AAID` Rules](#the-four-core-aaid-rules)
   - [Rule 1: Stages vs Phases (Two Operational Modes)](#rule-1-stages-vs-phases-two-operational-modes)
   - [Rule 2: Universal Internal Phase Flow (Within Each Workflow)](#rule-2-universal-internal-phase-flow-within-each-workflow)
   - [Rule 3: Technology Agnosticism](#rule-3-technology-agnosticism)
   - [Rule 4: Consistent Markdown Instruction Format (Within Each Workflow)](#rule-4-consistent-markdown-instruction-format-within-each-workflow)
 - [Quick Validation Checklist](#quick-validation-checklist)
-- [Contributing to AAID](#contributing-to-aaid)
+- [Contributing to `AAID`](#contributing-to-aaid)
   - [Creating a New Workflow](#creating-a-new-workflow)
   - [Improving Existing Workflows](#improving-existing-workflows)
 - [Summary](#summary)
@@ -18,7 +18,7 @@
 
 ## Purpose
 
-This document defines the core architectural rules for AAID workflows. Use it when:
+This document defines the core architectural rules for `AAID` workflows. Use it when:
 
 - **Creating new workflows**
 - **Improving existing workflows**
@@ -27,7 +27,7 @@ This document defines the core architectural rules for AAID workflows. Use it wh
 
 | Term                            | Definition                                                                                                                                                                                                                   |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **AAID Workflow**               | A complete development process (like TDD or Acceptance Testing) that follows the four AAID rules. Contains both Stages and Phases.                                                                                           |
+| **`AAID` Workflow**             | A complete development process (like TDD or Acceptance Testing) that follows the four `AAID` rules. Contains both Stages and Phases.                                                                                         |
 | **Stage**                       | A step in the workflow using collaborative mode where developer and AI have flexible, conversational back-and-forth to understand, plan, and align.                                                                          |
 | **Phase**                       | A step in the workflow using disciplined mode where AI follows strict rules, mandatory sequences, and must stop for review after each phase. Phases exist within a Stage (e.g., Stage 4 contains RED/GREEN/REFACTOR phases). |
 | **Internal Phase Flow**         | The sequential substeps that happen inside each phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same flow.                                                          |
@@ -40,28 +40,28 @@ This document defines the core architectural rules for AAID workflows. Use it wh
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
 | **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal flow patterns.                                                                                    |
 
-## The Four Core AAID Rules
+## The Four Core `AAID` Rules
 
 ### Rule 1: Stages vs Phases (Two Operational Modes)
 
-AAID workflows operate in two distinct modes:
+When it comes to AI agent and human developer interactions, `AAID` workflows operate in two distinct modes:
 
-| Mode       | Behavior                              | Purpose                                 | Example                                     |
-| ---------- | ------------------------------------- | --------------------------------------- | ------------------------------------------- |
-| **Stages** | Flexible conversation, back-and-forth | Understanding, planning, alignment      | Context Providing, Planning, Initialization |
-| **Phases** | Strict rules, mandatory sequence      | Disciplined execution with verification | RED → GREEN → REFACTOR (in TDD)             |
+| Mode       | Behavior                              | Purpose                                 | Example                                         |
+| ---------- | ------------------------------------- | --------------------------------------- | ----------------------------------------------- |
+| **Stages** | Flexible conversation, back-and-forth | Preparation, setup, alignment           | Context Providing, Planning, TDD Initialization |
+| **Phases** | Strict rules, mandatory sequence      | Disciplined execution with verification | RED → GREEN → REFACTOR (in TDD)                 |
 
 **Key Distinction:**
 
-- **Stages**: AI can "vibe" - natural dialogue, iteration, exploration
-- **Phases**: AI follows hard rules - cannot skip steps, must stop for review
+- **Stages**: AI interactions are more spontaneous and free-flowing; natural dialogue, iteration, exploration
+- **Phases**: AI is instructed to follow hard rules, much like a state machine; cannot skip steps, must stop for review
 
 **The Transition Point:**
 
 The AI rules file must explicitly state when the mode switches:
 
 ```markdown
-## The Full AAID Workflow Sequence
+## The Full `AAID` Workflow Sequence
 
 1. **Stage 1: [Name]** (normal conversation mode)
 2. **Stage 2: [Name]** (normal conversation mode, optional)
@@ -72,7 +72,7 @@ The AI rules file must explicitly state when the mode switches:
 Stages 1-3 use normal AI assistance. Stage 4 enforces strict discipline.
 ```
 
-This explicit statement tells the AI exactly when to switch from collaborative to state-machine mode.
+This explicit statement tells the AI exactly when to switch from collaborative to the state-machine-like mode.
 
 ---
 
@@ -88,7 +88,7 @@ The sequential steps AI goes through INSIDE each phase (visible as substeps in w
 
 **Examples:**
 
-**AAID TDD Internal Flow:**
+**`AAID` TDD Internal Flow:**
 
 ```text
 Collaborate → Verify → Handle Issues → Review
@@ -100,7 +100,7 @@ Collaborate → Verify → Handle Issues → Review
 | 🟢 GREEN    | Write minimal code   | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
 | 🧼 REFACTOR | Improve code quality | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
 
-**AAID AT (Acceptance Testing) Internal Flow:**
+**`AAID` AT (Acceptance Testing) Internal Flow:**
 
 ```text
 Collaborate → Verify → Handle Issues → Review
@@ -112,7 +112,7 @@ Collaborate → Verify → Handle Issues → Review
 | 🟢 Phase 2 | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 | 🧼 Phase 3 | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 
-**AAID Refactoring might use a different flow:**
+**`AAID` Refactoring might use a different flow:**
 
 ```text
 Prepare → Transform → Check → Review
@@ -137,7 +137,7 @@ Prepare → Transform → Check → Review
 
 ### Rule 3: Technology Agnosticism
 
-**The Rule:** AAID never mandates specific tools, frameworks, or libraries.
+**The Rule:** `AAID` never mandates specific tools, frameworks, or libraries.
 
 **Why:** Teams must choose technical implementations based on their context.
 
@@ -148,7 +148,7 @@ Prepare → Transform → Check → Review
 | "Run your build pipeline"                       | "Run npm build"                 |
 | "Commit to version control"                     | "Commit to Git"                 |
 
-**Principle:** AAID operates at _workflow_ level, not _tool_ level.
+**Principle:** `AAID` operates at _workflow_ level, not _tool_ level.
 
 ---
 
@@ -170,7 +170,7 @@ This is separate from the internal phase flow (Rule 2). This is about HOW you wr
 | **Across workflows**    | SHOULD aim for similarity for consistency, but MAY differ if needed                                                                     |
 | **High-level elements** | Elements like "Triggers" and "Core Principle" are abstract enough to work across most workflows                                         |
 
-**Example - AAID TDD uses this structure for all phases:**
+**Example - `AAID` TDD uses this structure for all phases:**
 
 ```markdown
 ### 🔴 RED Phase - Write Failing Test
@@ -190,7 +190,7 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 - Makes rules files scannable and predictable
 - Easier for AI to understand and follow instructions
 - Easier for contributors to add new phases
-- Creates consistent "AAID feel" across different workflows
+- Creates consistent "`AAID` feel" across different workflows
 
 ---
 
@@ -207,7 +207,7 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 | **Rule 4** | Do all phases within this workflow use identical markdown structure in the rules file? | ☐   |
 |            | Are the section headers consistent across all phases within this workflow?             | ☐   |
 
-## Contributing to AAID
+## Contributing to `AAID`
 
 ### Creating a New Workflow
 
@@ -273,19 +273,19 @@ Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition poin
 
 ## Summary
 
-AAID workflows follow four rules:
+`AAID` workflows follow four rules:
 
 1. **Stages vs Phases** - Collaborative mode vs disciplined mode, with explicit transition
 2. **Internal Phase Flow** - All phases within a workflow share the same sequential steps
 3. **Technology Agnosticism** - Never mandate specific tools/frameworks
 4. **Markdown Format** - All phases within a workflow use identical documentation structure
 
-Follow these → AAID-style ✅  
+Follow these → `AAID`-style ✅  
 Break these → Something else ❌
 
 ## Resources
 
-- [Main AAID Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)
+- [Main `AAID` Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)
 - [TDD Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/aaid-workflow-diagram.mermaid)
 - [AT Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/appendices/appendix-a/aaid-at-workflow.diagram.mermaid)
 - [Demo Repository](https://github.com/dawid-dahl-umain/augmented-ai-development-demo)
