@@ -1,16 +1,16 @@
-# `AAID` Collaboration Guidelines
+# AAID Collaboration Guidelines
 
 ## Table of Contents
 
 - [Purpose](#purpose)
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
-- [The Four Core `AAID` Rules](#the-four-core-aaid-rules)
+- [The Four Core AAID Rules](#the-four-core-aaid-rules)
   - [Rule 1: Stages vs Phases (Two Operational Modes)](#rule-1-stages-vs-phases-two-operational-modes)
   - [Rule 2: Universal Internal Phase Flow (Within Each Workflow)](#rule-2-universal-internal-phase-flow-within-each-workflow)
   - [Rule 3: Technology Agnosticism](#rule-3-technology-agnosticism)
   - [Rule 4: Consistent Markdown Instruction Format (Within Each Workflow)](#rule-4-consistent-markdown-instruction-format-within-each-workflow)
 - [Quick Validation Checklist](#quick-validation-checklist)
-- [Contributing to `AAID`](#contributing-to-aaid)
+- [Contributing to AAID](#contributing-to-aaid)
   - [Creating a New Workflow](#creating-a-new-workflow)
   - [Improving Existing Workflows](#improving-existing-workflows)
 - [Summary](#summary)
@@ -40,7 +40,7 @@ This document defines the core architectural rules for `AAID` workflows. Use it 
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
 | **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal flow patterns.                                                                                    |
 
-## The Four Core `AAID` Rules
+## The Four Core AAID Rules
 
 ### Rule 1: Stages vs Phases (Two Operational Modes)
 
@@ -207,7 +207,7 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 | **Rule 4** | Do all phases within this workflow use identical markdown structure in the rules file? | ☐   |
 |            | Are the section headers consistent across all phases within this workflow?             | ☐   |
 
-## Contributing to `AAID`
+## Contributing to AAID
 
 ### Creating a New Workflow
 
