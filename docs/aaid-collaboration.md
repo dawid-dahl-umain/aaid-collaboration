@@ -21,7 +21,9 @@
 This document defines the core architectural rules for `AAID` workflows. Use it when:
 
 - **Creating new workflows**
+  - _E.g. `AAID`: Refactoring_
 - **Improving existing workflows**
+  - _E.g. `AAID`: Acceptance Testing_
 
 ## Glossary (Ubiquitous Language)
 
