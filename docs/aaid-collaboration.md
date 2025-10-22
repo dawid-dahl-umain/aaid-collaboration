@@ -112,7 +112,7 @@ Collaborate → Verify → Handle Issues → Review
 | 🟢 Phase 2 | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 | 🧼 Phase 3 | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` Legacy Code might use a different pattern:**
+**`AAID` Refactoring might use a different pattern:**
 
 ```text
 Seam → Characterize → Verify → Transform
