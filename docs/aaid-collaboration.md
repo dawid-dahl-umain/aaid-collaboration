@@ -6,7 +6,7 @@
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
 - [The Four Core AAID Rules](#the-four-core-aaid-rules)
   - [Rule 1: Stages vs Phases (Two Operational Modes)](#rule-1-stages-vs-phases-two-operational-modes)
-  - [Rule 2: Universal Internal Phase Flow (Within Each Workflow)](#rule-2-universal-internal-phase-flow-within-each-workflow)
+  - [Rule 2: Internal Phase Pattern (Within Each Workflow)](#rule-2-internal-phase-pattern-within-each-workflow)
   - [Rule 3: Technology Agnosticism](#rule-3-technology-agnosticism)
   - [Rule 4: Consistent Markdown Instruction Format (Within Each Workflow)](#rule-4-consistent-markdown-instruction-format-within-each-workflow)
 - [Quick Validation Checklist](#quick-validation-checklist)
@@ -30,7 +30,7 @@ This document defines the core architectural rules for `AAID` workflows. Use it 
 | **`AAID` Workflow**             | A complete development process (like TDD or Acceptance Testing) that follows the four `AAID` rules. Contains both Stages and Phases.                                                                                         |
 | **Stage**                       | A step in the workflow using collaborative mode where developer and AI have flexible, conversational back-and-forth to understand, plan, and align.                                                                          |
 | **Phase**                       | A step in the workflow using disciplined mode where AI follows strict rules, mandatory sequences, and must stop for review after each phase. Phases exist within a Stage (e.g., Stage 4 contains RED/GREEN/REFACTOR phases). |
-| **Internal Phase Flow**         | The sequential substeps that happen inside each phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same flow.                                                          |
+| **Internal Phase Pattern**      | The sequential substeps that happen inside each phase (e.g., `Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW`). All phases within a workflow must use the same pattern.          |
 | **Transition Point**            | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules.                                 |
 | **Collaborative Mode**          | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. AI can iterate freely with the developer.                                                                                 |
 | **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                      |
@@ -38,7 +38,7 @@ This document defines the core architectural rules for `AAID` workflows. Use it 
 | **Rules File**                  | The markdown document (like `.cursor/rules/aaid.mdc`) that contains instructions for the AI, defining the workflow sequence, phases, and behavioral rules.                                                                   |
 | **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                             |
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
-| **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal flow patterns.                                                                                    |
+| **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                                                         |
 
 ## The Four Core AAID Rules
 
@@ -76,43 +76,43 @@ This explicit statement tells the AI exactly when to switch from collaborative t
 
 ---
 
-### Rule 2: Universal Internal Phase Flow (Within Each Workflow)
+### Rule 2: Internal Phase Pattern (Within Each Workflow)
 
-**The Rule:** All phases within a single workflow must follow the same internal flow pattern.
+**The Rule:** All phases within a single workflow must follow the same internal pattern.
 
-**What is "Internal Phase Flow"?**
+**What is "Internal Phase Pattern"?**
 
 The sequential steps AI goes through INSIDE each phase (visible as substeps in workflow diagrams).
 
-**Important:** Each workflow defines its own flow. The requirement is internal consistency within that workflow.
+**Important:** Each workflow defines its own pattern. The requirement is internal consistency within that workflow.
 
 **Examples:**
 
-**`AAID` TDD Internal Flow:**
+**`AAID` TDD Internal Pattern:**
 
 ```text
-Collaborate → Verify → Handle Issues → Review
+Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW
 ```
 
-| Phase       | Collaborate          | Verify                            | Handle Issues                 | Review               |
-| ----------- | -------------------- | --------------------------------- | ----------------------------- | -------------------- |
-| 🔴 RED      | Write failing test   | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
-| 🟢 GREEN    | Write minimal code   | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
-| 🧼 REFACTOR | Improve code quality | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
+| Phase       | Collaborate and generate with AI | Run tests                         | Handle potential issues       | Review               |
+| ----------- | -------------------------------- | --------------------------------- | ----------------------------- | -------------------- |
+| 🔴 RED      | Write failing test               | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
+| 🟢 GREEN    | Write minimal code               | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
+| 🧼 REFACTOR | Improve code quality             | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` AT (Acceptance Testing) Internal Flow:**
+**`AAID` AT (Acceptance Testing) Internal Pattern:**
 
 ```text
-Collaborate → Verify → Handle Issues → Review
+Collaborate and generate with AI → Run tests → Handle potential issues → AWAIT USER REVIEW
 ```
 
-| Phase      | Collaborate                 | Verify                        | Handle Issues                | Review               |
-| ---------- | --------------------------- | ----------------------------- | ---------------------------- | -------------------- |
-| 🔴 Phase 1 | Map BDD to DSL              | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
-| 🟢 Phase 2 | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
-| 🧼 Phase 3 | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| Phase      | Collaborate and generate with AI | Run tests                     | Handle potential issues      | Review               |
+| ---------- | -------------------------------- | ----------------------------- | ---------------------------- | -------------------- |
+| 🔴 Phase 1 | Map BDD to DSL                   | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
+| 🟢 Phase 2 | Implement driver                 | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| 🧼 Phase 3 | Refine & validate isolation      | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` Refactoring might use a different flow:**
+**`AAID` Refactoring might use a different pattern:**
 
 ```text
 Prepare → Transform → Check → Review
@@ -122,10 +122,10 @@ Prepare → Transform → Check → Review
 
 **The Requirement:**
 
-- TDD's three phases all use TDD's flow ✅
-- AT's three phases all use AT's flow ✅
-- Refactoring's phases would all use Refactoring's flow ✅
-- Mixing different flows within one workflow ❌
+- TDD's three phases all use TDD's pattern ✅
+- AT's three phases all use AT's pattern ✅
+- Refactoring's phases would all use Refactoring's pattern ✅
+- Mixing different patterns within one workflow ❌
 
 **Why This Matters:**
 
@@ -200,7 +200,7 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 | ---------- | -------------------------------------------------------------------------------------- | --- |
 | **Rule 1** | Are collaborative Stages clearly separated from disciplined Phases?                    | ☐   |
 |            | Is the transition point explicitly documented in the rules file?                       | ☐   |
-| **Rule 2** | Do all phases within this workflow follow the same internal flow?                      | ☐   |
+| **Rule 2** | Do all phases within this workflow follow the same internal pattern?                   | ☐   |
 |            | Can you overlay phase diagrams and see identical step patterns?                        | ☐   |
 | **Rule 3** | Does the workflow avoid naming specific tools/frameworks/architectures?                | ☐   |
 |            | Could teams using different tech stacks or architectures both use this workflow?       | ☐   |
@@ -217,11 +217,11 @@ All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle �
 - What needs collaboration (Stages) vs discipline (Phases)?
 - Where is the transition point?
 
-#### 2. Design Internal Phase Flow (Rule 2)
+#### 2. Design Internal Phase Pattern (Rule 2)
 
 - What sequential steps happen inside each phase?
-- Define the flow: `[Step 1] → [Step 2] → [Step 3] → ...` (as many steps as needed)
-- This flow must be identical for all phases in your workflow
+- Define the pattern: `[Step 1] → [Step 2] → [Step 3] → ...` (as many steps as needed)
+- This pattern must be identical for all phases in your workflow
 
 #### 3. Choose Markdown Structure (Rule 4)
 
@@ -263,7 +263,7 @@ Write the AI instructions file (e.g., `.cursor/rules/your-workflow.mdc`) contain
 
 #### 8. Create Workflow Diagram
 
-Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition point, and Phases with internal flow.
+Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition point, and Phases with internal pattern.
 
 ### Improving Existing Workflows
 
@@ -276,7 +276,7 @@ Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition poin
 `AAID` workflows follow four rules:
 
 1. **Stages vs Phases** - Collaborative mode vs disciplined mode, with explicit transition
-2. **Internal Phase Flow** - All phases within a workflow share the same sequential steps
+2. **Internal Phase Pattern** - All phases within a workflow share the same sequential steps
 3. **Technology Agnosticism** - Never mandate specific tools/frameworks
 4. **Markdown Format** - All phases within a workflow use identical documentation structure
 
