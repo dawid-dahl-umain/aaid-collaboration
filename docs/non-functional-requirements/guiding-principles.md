@@ -1,4 +1,4 @@
-# AAID Guiding Principles (Non-Functional Requirements)
+# 🎯 AAID Guiding Principles (Non-Functional Requirements)
 
 These principles represent the philosophy and values that guide `AAID`'s design and use. They're not structurally enforced like the core rules, but they define `AAID`'s spirit. A workflow can technically function as `AAID` without following these principles, but it won't embody what `AAID` stands for.
 

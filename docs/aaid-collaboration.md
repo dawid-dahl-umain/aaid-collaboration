@@ -4,8 +4,8 @@
 
 - [Purpose](#purpose)
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
-- [Structural Rules (Functional Requirements)](#structural-rules-functional-requirements)
-- [AAID Guiding Principles (Non-Functional Requirements)](#aaid-guiding-principles-non-functional-requirements)
+- [📐 Structural Rules (Functional Requirements)](#-structural-rules-functional-requirements)
+- [🎯 AAID Guiding Principles (Non-Functional Requirements)](#-aaid-guiding-principles-non-functional-requirements)
 - [Validation Checklists](#validation-checklists)
   - [Functional Requirements Validation](#functional-requirements-validation)
   - [Non-Functional Requirements Validation](#non-functional-requirements-validation)
@@ -46,7 +46,7 @@ Use this document when:
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
 | **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                                                         |
 
-## Structural Rules (Functional Requirements)
+## 📐 Structural Rules (Functional Requirements)
 
 These rules define the observable architecture of `AAID` workflows, visible in rules files, workflow diagrams, and articles. They determine what makes a workflow structurally _be_ `AAID`. Without these, it's something else.
 
@@ -60,7 +60,7 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 
 ---
 
-## AAID Guiding Principles (Non-Functional Requirements)
+## 🎯 AAID Guiding Principles (Non-Functional Requirements)
 
 These principles represent the philosophy and values that guide `AAID`'s design and use. They're not structurally enforced like the core rules, but they define `AAID`'s spirit. A workflow can technically function as `AAID` without following these principles, but it won't embody what `AAID` stands for.
 
@@ -183,13 +183,13 @@ Create a comprehensive guide (like the [Main `AAID` Guide](https://github.com/da
 
 `AAID` workflows are defined by structural rules and guiding principles:
 
-**Structural Rules (Functional Requirements):**
+**📐 Structural Rules (Functional Requirements):**
 
 1. **Stages vs Phases** - Collaborative mode vs disciplined mode, with explicit transition
 2. **Internal Phase Pattern** - All phases within a workflow share the same sequential steps
 3. **Markdown Format** - All phases within a workflow use identical documentation structure
 
-**Guiding Principles (Non-Functional Requirements):**
+**🎯 Guiding Principles (Non-Functional Requirements):**
 
 1. **Principle 1: Technology Agnosticism** - Operate at workflow level, not tool level
 2. **Principle 2: Developer Mindset** - Engaged comprehension and incremental progress
@@ -205,6 +205,6 @@ Ignore the guiding principles → It's `AAID` _in structure only_ ⚠️
 ## Resources
 
 - [Main `AAID` Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)
-- [TDD Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/aaid-workflow-diagram.mermaid)
-- [AT Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/appendices/appendix-a/aaid-at-workflow.diagram.mermaid)
+- [`AAID`: TDD Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/aaid-workflow-diagram.mermaid)
+- [`AAID`: Acceptance Testing Diagram](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/appendices/appendix-a/aaid-at-workflow.diagram.mermaid)
 - [Demo Repository](https://github.com/dawid-dahl-umain/augmented-ai-development-demo)

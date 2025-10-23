@@ -1,4 +1,4 @@
-# Structural Rules (Functional Requirements)
+# 📐 Structural Rules (Functional Requirements)
 
 These rules define the observable architecture of `AAID` workflows, visible in rules files, workflow diagrams, and articles. They determine what makes a workflow structurally _be_ `AAID`. Without these, it's something else.
 
