@@ -6,9 +6,11 @@ Guidelines for collaborating on existing or new `AAID` workflows.
 
 **Main Guide:**
 
-- 📘 [AAID Collaboration Guidelines](./docs/aaid-collaboration.md) - Overview, validation checklists, and contribution guide
+- 📘 [AAID Collaboration Guidelines](./docs/aaid-collaboration.md) - Start here. Overview, validation checklists, and contribution guide
 
-**Documents:**
+**Detailed Guides:**
+
+The following guides are referenced from the main guide above. Start with the main guide first, or jump directly to a specific topic:
 
 - 📐 [Structural Rules (Functional Requirements)](./docs/functional-requirements/structural-rules.md) - The structural rules that define `AAID` workflow architecture
 - 🎯 [Guiding Principles (Non-Functional Requirements)](./docs/non-functional-requirements/guiding-principles.md) - The principles that define `AAID`'s philosophy and values
