@@ -12,6 +12,7 @@ Guidelines for collaborating on existing or new `AAID` workflows.
 
 - 📐 [Structural Rules (Functional Requirements)](./docs/functional-requirements/structural-rules.md) - The structural rules that define `AAID` workflow architecture
 - 🎯 [Guiding Principles (Non-Functional Requirements)](./docs/non-functional-requirements/guiding-principles.md) - The principles that define `AAID`'s philosophy and values
+- ⚡ [Creating Workflow Commands (Optional)](./docs/reusable-prompts/creating-workflow-commands.md) - Guide for creating reusable prompt commands for your workflows
 
 ## Current AAID Workflows
 

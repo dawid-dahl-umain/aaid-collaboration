@@ -4,8 +4,9 @@
 
 - [Purpose](#purpose)
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
-- [📐 Structural Rules (Functional Requirements)](#-structural-rules-functional-requirements)
-- [🎯 AAID Guiding Principles (Non-Functional Requirements)](#-aaid-guiding-principles-non-functional-requirements)
+- [📐 Structural Rules (Functional Requirements)](#structural-rules-functional-requirements)
+- [🎯 AAID Guiding Principles (Non-Functional Requirements)](#aaid-guiding-principles-non-functional-requirements)
+- [⚡ Creating Workflow Commands (Optional)](#creating-workflow-commands-optional)
 - [Contributing to AAID](#contributing-to-aaid)
   - [Creating a New Workflow](#creating-a-new-workflow)
   - [Improving Existing Workflows](#improving-existing-workflows)
@@ -45,6 +46,8 @@ Use this document when:
 | **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
 | **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                                                         |
 
+<a id="structural-rules-functional-requirements"></a>
+
 ## 📐 Structural Rules (Functional Requirements)
 
 These rules define the observable architecture of `AAID` workflows, visible in rules files, workflow diagrams, and articles. They determine what makes a workflow structurally _be_ `AAID`. Without these, it's something else.
@@ -55,7 +58,9 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 | **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential substeps                          |
 | **Rule 3: Instruction Markdown Format** | All phases within a workflow use identical AI instruction format                          |
 
-📖 **[Read the complete Structural Rules →](functional-requirements/structural-rules.md)**
+📖 **[Read the guide on Structural Rules →](functional-requirements/structural-rules.md)**
+
+<a id="aaid-guiding-principles-non-functional-requirements"></a>
 
 ## 🎯 AAID Guiding Principles (Non-Functional Requirements)
 
@@ -68,7 +73,17 @@ These principles represent the philosophy and values that guide `AAID`'s design 
 | **Principle 3: Standing on Giants' Shoulders**     | Build on proven methodologies, not AI novelty              |
 | **Principle 4: The Future We're Building Towards** | Design for conversation-speed human orchestration          |
 
-📖 **[Read the complete Guiding Principles →](non-functional-requirements/guiding-principles.md)**
+📖 **[Read the guide on Guiding Principles →](non-functional-requirements/guiding-principles.md)**
+
+<a id="creating-workflow-commands-optional"></a>
+
+## ⚡ Creating Workflow Commands (Optional)
+
+Reusable prompt commands (like `/red-&-stop`) are optional tools that speed up workflows and help steer AI back on track when it forgets rules. They're useful for repetitive prompts, phase transitions, and context gathering.
+
+**Stage commands** guide exploration; **Phase commands** enforce discipline and review checkpoints. Commands reference the rules file as single source of truth.
+
+📖 **[Read the guide on Creating Workflow Commands →](reusable-prompts/creating-workflow-commands.md)**
 
 ## Contributing to AAID
 
