@@ -2,11 +2,11 @@
 
 These rules define the observable architecture of `AAID` workflows, visible in rules files, workflow diagrams, and articles. They determine what makes a workflow structurally _be_ `AAID`. Without these, it's something else.
 
-| Rule                               | What It Defines                                                                           |
-| ---------------------------------- | ----------------------------------------------------------------------------------------- |
-| **Rule 1: Stages vs Phases**       | Two operational modes: flexible collaboration vs strict discipline, with transition point |
-| **Rule 2: Internal Phase Pattern** | All phases within a workflow follow the same sequential substeps                          |
-| **Rule 3: Markdown Format**        | All phases within a workflow use identical documentation structure                        |
+| Rule                                    | What It Defines                                                                           |
+| --------------------------------------- | ----------------------------------------------------------------------------------------- |
+| **Rule 1: Stages vs Phases**            | Two operational modes: flexible collaboration vs strict discipline, with transition point |
+| **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential substeps                          |
+| **Rule 3: Instruction Markdown Format** | All phases within a workflow use identical AI instruction format                          |
 
 ## Table of Contents
 
@@ -138,7 +138,7 @@ This is separate from the internal phase flow (Rule 2). This is about HOW you wr
 **Next Phase:** GREEN (mandatory)
 ```
 
-All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers → Core Principle → Instructions → On Success → On Error → Next Phase`
+All three TDD phases (RED, GREEN, REFACTOR) use: `Triggers | Core Principle | Instructions | On Success | On Error | Next Phase`
 
 **Why This Matters:**
 
