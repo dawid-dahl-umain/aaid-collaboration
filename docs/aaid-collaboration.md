@@ -12,7 +12,6 @@
 - [Validation Checklists](#validation-checklists)
   - [Functional Requirements Validation](#functional-requirements-validation)
   - [Non-Functional Requirements Validation](#non-functional-requirements-validation)
-- [Summary](#summary)
 - [Resources](#resources)
 
 ## Purpose
@@ -162,29 +161,6 @@ Once you've created your workflow artifacts (rules file, diagram, article), use 
 | **Principle 2: Developer Mindset**                 | Does the workflow enforce review checkpoints and incremental progress?       | ☐   |
 | **Principle 3: Standing on Giants' Shoulders**     | Can you identify which established practices influenced this design?         | ☐   |
 | **Principle 4: The Future We're Building Towards** | Does the workflow support rapid, voice-ready human-AI cycles?                | ☐   |
-
-## Summary
-
-`AAID` workflows are defined by structural rules and guiding principles:
-
-**📐 Structural Rules (Functional Requirements):**
-
-1. **Stages vs Phases** - Collaborative mode vs disciplined mode, with explicit transition
-2. **Internal Phase Pattern** - All phases within a workflow share the same sequential steps
-3. **Markdown Format** - All phases within a workflow use identical documentation structure
-
-**🎯 Guiding Principles (Non-Functional Requirements):**
-
-1. **Principle 1: Technology Agnosticism** - Operate at workflow level, not tool level
-2. **Principle 2: Developer Mindset** - Engaged comprehension and incremental progress
-3. **Principle 3: Standing on Giants' Shoulders** - Build on proven methodologies, not AI novelty
-4. **Principle 4: The Future We're Building Towards** - Design for conversation-speed human orchestration
-
-Meet the structural rules → It _is_ an `AAID` workflow ✅  
-Break the structural rules → It's something else ❌
-
-Follow the guiding principles → It embodies `AAID`'s _philosophy and values_ ✅  
-Ignore the guiding principles → It's `AAID` _in structure only_ ⚠️
 
 ## Resources
 
