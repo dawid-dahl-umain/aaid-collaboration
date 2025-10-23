@@ -1,4 +1,4 @@
-# Creating Workflow Commands
+# Creating Reusable Prompts
 
 Reusable prompt commands speed up workflows with short triggers (like `/red-&-stop`) instead of typing long prompts repeatedly. They also serve as corrective tools when AI deviates from the rules file.
 

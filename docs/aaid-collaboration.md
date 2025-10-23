@@ -6,7 +6,7 @@
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
 - [📐 Structural Rules (Functional Requirements)](#structural-rules-functional-requirements)
 - [🎯 AAID Guiding Principles (Non-Functional Requirements)](#aaid-guiding-principles-non-functional-requirements)
-- [⚡ Creating Workflow Commands (Optional)](#creating-workflow-commands-optional)
+- [⚡ Creating Reusable Prompts (Optional)](#creating-reusable-prompts-optional)
 - [Contributing to AAID](#contributing-to-aaid)
   - [Creating a New Workflow](#creating-a-new-workflow)
   - [Improving Existing Workflows](#improving-existing-workflows)
@@ -75,15 +75,15 @@ These principles represent the philosophy and values that guide `AAID`'s design 
 
 📖 **[Read the guide on Guiding Principles →](non-functional-requirements/guiding-principles.md)**
 
-<a id="creating-workflow-commands-optional"></a>
+<a id="creating-reusable-prompts-optional"></a>
 
-## ⚡ Creating Workflow Commands (Optional)
+## ⚡ Creating Reusable Prompts (Optional)
 
 Reusable prompt commands (like `/red-&-stop`) are optional tools that speed up workflows and help steer AI back on track when it forgets rules. They're useful for repetitive prompts, phase transitions, and context gathering, and many other cases.
 
 **Stage commands** guide exploration; **Phase commands** enforce discipline and review checkpoints. Commands reference the rules file as single source of truth.
 
-📖 **[Read the guide on Creating Workflow Commands →](reusable-prompts/creating-workflow-commands.md)**
+📖 **[Read the guide on Creating Reusable Prompts →](reusable-prompts/creating-reusable-prompts.md)**
 
 ## Contributing to AAID
 
