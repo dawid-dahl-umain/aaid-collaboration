@@ -83,35 +83,25 @@ Follow these steps to create a workflow that meets both functional requirements 
 - What needs collaboration (Stages) vs discipline (Phases)?
 - Where is the transition point?
 
-#### 2. Document Transition Point (Rule 1 - FR)
+#### 2. Apply Structural Rules (FR)
 
-In your rules file:
+Design your workflow architecture:
 
-```markdown
-Stages 1-X use normal AI assistance.
-Stage Y enforces strict [your workflow name] discipline.
-```
+- **Rule 1: Document Transition Point**
 
-#### 3. Design Internal Phase Pattern (Rule 2 - FR)
+  - Explicitly state when the workflow shifts from Stages to Phases
+  - Example: "Stages 1-3 use normal AI assistance. Stage 4 enforces strict [workflow name] discipline."
 
-- What sequential steps happen inside each phase?
-- Define the pattern: `[Step 1] → [Step 2] → [Step 3] → ...` (as many steps as needed)
-- This pattern must be identical for all phases in your workflow
+- **Rule 2: Design Internal Phase Pattern**
 
-#### 4. Choose Phase Markdown Structure (Rule 3 - FR)
+  - Define the sequential substeps inside each phase: `[Step 1] → [Step 2] → [Step 3] → ...`
+  - This pattern must be identical for all phases in your workflow
 
-Recommended sections (high-level enough for most workflows):
+- **Rule 3: Choose Phase Markdown Structure**
+  - Use identical markdown structure for all phases
+  - Recommended sections: Triggers, Core Principle, Instructions, On Success, On Error, Next Phase
 
-- **Triggers** - Keywords that activate the phase
-- **Core Principle** - What this phase accomplishes
-- **Instructions** - Detailed steps
-- **On Success** - Typically: "STOP AND AWAIT USER REVIEW"
-- **On Error** - Typically: "STOP and report what failed"
-- **Next Phase** - Which phase comes next
-
-Use identical structure for all phases.
-
-#### 5. Apply Guiding Principles (NFR)
+#### 3. Apply Guiding Principles (NFR)
 
 Ensure your workflow embodies `AAID`'s philosophy:
 
@@ -120,7 +110,7 @@ Ensure your workflow embodies `AAID`'s philosophy:
 - **Standing on Giants' Shoulders**: Base design on proven methodologies; cite the foundations you're building on.
 - **The Future We're Building Towards**: Design for rapid human-AI cycles; use simple commands ready for voice input.
 
-#### 6. Create Rules File
+#### 4. Create Rules File
 
 Write the AI instructions file (e.g., `.cursor/rules/your-workflow.mdc`) containing:
 
@@ -128,18 +118,18 @@ Write the AI instructions file (e.g., `.cursor/rules/your-workflow.mdc`) contain
 - All phase definitions using your chosen markdown structure (Rule 3)
 - Recognition triggers so AI knows when this workflow is active
 
-#### 7. Create Workflow Diagram
+#### 5. Create Workflow Diagram
 
 Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition point, and Phases with internal pattern.
 
-#### 8. Write Human-Readable Article
+#### 6. Write Human-Readable Article
 
 Create a comprehensive guide (like the [Main `AAID` Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)) that teaches developers how to use this workflow. The article should:
 
 - Explain the workflow's purpose and when to use it
 - Walk through each stage and phase with examples
 - Show real-world application with code samples
-- Reference the established methodology you're building on (Guiding Principle #3)
+- Reference the established methodology you're building on (Standing on Giants' Shoulders)
 
 ### Improving Existing Workflows
 
