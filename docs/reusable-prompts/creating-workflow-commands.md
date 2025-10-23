@@ -43,10 +43,10 @@ Phase commands should reflect your workflow's internal phase pattern. If phases 
 
 ## Design Guidelines
 
-- **Keep simple**: Commands should be memorable and voice-ready (`/red-&-stop` not `/execute-red-phase-with-verification`)
+- **Keep simple**: Commands should be memorable and simple (`/red-&-stop` not `/execute-red-phase-with-verification`)
 - **Technology agnostic**: "Run test suite" not "Run npm test"
 - **Reference rules file**: Commands trigger behavior; rules file remains single source of truth
-- **Include stop points**: Phase commands must enforce `AWAIT USER REVIEW`
+- **Include stop points**: Phase commands should often enforce `AWAIT USER REVIEW`
 
 ## Quick Examples
 
