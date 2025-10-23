@@ -145,11 +145,11 @@ Once you've created your workflow artifacts (rules file, diagram, article), use 
 
 **These MUST all pass for a workflow to be considered `AAID`.**
 
-| Rule       | Validation Question                                                            | ✓   |
-| ---------- | ------------------------------------------------------------------------------ | --- |
-| **Rule 1** | Is the transition point from Stages to Phases explicitly documented?           | ☐   |
-| **Rule 2** | Do all phases follow the same internal pattern (visible in workflow diagrams)? | ☐   |
-| **Rule 3** | Do all phases use identical markdown structure in the rules file?              | ☐   |
+| Rule                                    | Validation Question                                                            | ✓   |
+| --------------------------------------- | ------------------------------------------------------------------------------ | --- |
+| **Rule 1: Stages vs Phases**            | Is the transition point from Stages to Phases explicitly documented?           | ☐   |
+| **Rule 2: Internal Phase Pattern**      | Do all phases follow the same internal pattern (visible in workflow diagrams)? | ☐   |
+| **Rule 3: Instruction Markdown Format** | Do all phases use identical markdown structure in the rules file?              | ☐   |
 
 ### Non-Functional Requirements Validation
 
