@@ -79,7 +79,7 @@ These principles represent the philosophy and values that guide `AAID`'s design 
 
 ## ⚡ Creating Workflow Commands (Optional)
 
-Reusable prompt commands (like `/red-&-stop`) are optional tools that speed up workflows and help steer AI back on track when it forgets rules. They're useful for repetitive prompts, phase transitions, and context gathering.
+Reusable prompt commands (like `/red-&-stop`) are optional tools that speed up workflows and help steer AI back on track when it forgets rules. They're useful for repetitive prompts, phase transitions, and context gathering, and many other cases.
 
 **Stage commands** guide exploration; **Phase commands** enforce discipline and review checkpoints. Commands reference the rules file as single source of truth.
 
