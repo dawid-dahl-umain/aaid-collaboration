@@ -6,12 +6,12 @@
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
 - [📐 Structural Rules (Functional Requirements)](#-structural-rules-functional-requirements)
 - [🎯 AAID Guiding Principles (Non-Functional Requirements)](#-aaid-guiding-principles-non-functional-requirements)
-- [Validation Checklists](#validation-checklists)
-  - [Functional Requirements Validation](#functional-requirements-validation)
-  - [Non-Functional Requirements Validation](#non-functional-requirements-validation)
 - [Contributing to AAID](#contributing-to-aaid)
   - [Creating a New Workflow](#creating-a-new-workflow)
   - [Improving Existing Workflows](#improving-existing-workflows)
+- [Validation Checklists](#validation-checklists)
+  - [Functional Requirements Validation](#functional-requirements-validation)
+  - [Non-Functional Requirements Validation](#non-functional-requirements-validation)
 - [Summary](#summary)
 - [Resources](#resources)
 
@@ -58,8 +58,6 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 
 📖 **[Read the complete Structural Rules →](functional-requirements/structural-rules.md)**
 
----
-
 ## 🎯 AAID Guiding Principles (Non-Functional Requirements)
 
 These principles represent the philosophy and values that guide `AAID`'s design and use. They're not structurally enforced like the core rules, but they define `AAID`'s spirit. A workflow can technically function as `AAID` without following these principles, but it won't embody what `AAID` stands for.
@@ -72,31 +70,6 @@ These principles represent the philosophy and values that guide `AAID`'s design 
 | **Principle 4: The Future We're Building Towards** | Design for conversation-speed human orchestration          |
 
 📖 **[Read the complete Guiding Principles →](non-functional-requirements/guiding-principles.md)**
-
----
-
-## Validation Checklists
-
-### Functional Requirements Validation
-
-**These MUST all pass for a workflow to be considered `AAID`.**
-
-| Rule       | Validation Question                                                            | ✓   |
-| ---------- | ------------------------------------------------------------------------------ | --- |
-| **Rule 1** | Is the transition point from Stages to Phases explicitly documented?           | ☐   |
-| **Rule 2** | Do all phases follow the same internal pattern (visible in workflow diagrams)? | ☐   |
-| **Rule 3** | Do all phases use identical markdown structure in the rules file?              | ☐   |
-
-### Non-Functional Requirements Validation
-
-**These SHOULD be followed to maintain `AAID`'s philosophy and values.**
-
-| Principle                                          | Validation Question                                                          | ✓   |
-| -------------------------------------------------- | ---------------------------------------------------------------------------- | --- |
-| **Principle 1: Technology Agnosticism**            | Does the workflow avoid prescribing specific tools/frameworks/architectures? | ☐   |
-| **Principle 2: Developer Mindset**                 | Does the workflow enforce review checkpoints and incremental progress?       | ☐   |
-| **Principle 3: Standing on Giants' Shoulders**     | Can you identify which established practices influenced this design?         | ☐   |
-| **Principle 4: The Future We're Building Towards** | Does the workflow support rapid, voice-ready human-AI cycles?                | ☐   |
 
 ## Contributing to AAID
 
@@ -125,7 +98,7 @@ Stage Y enforces strict [your workflow name] discipline.
 - Define the pattern: `[Step 1] → [Step 2] → [Step 3] → ...` (as many steps as needed)
 - This pattern must be identical for all phases in your workflow
 
-#### 4. Choose Markdown Structure (Rule 3 - FR)
+#### 4. Choose Phase Markdown Structure (Rule 3 - FR)
 
 Recommended sections (high-level enough for most workflows):
 
@@ -147,11 +120,7 @@ Ensure your workflow embodies `AAID`'s philosophy:
 - **Standing on Giants' Shoulders**: Base design on proven methodologies; cite the foundations you're building on.
 - **The Future We're Building Towards**: Design for rapid human-AI cycles; use simple commands ready for voice input.
 
-#### 6. Validate
-
-Use the Validation Checklists above (both FR and NFR).
-
-#### 7. Create Rules File
+#### 6. Create Rules File
 
 Write the AI instructions file (e.g., `.cursor/rules/your-workflow.mdc`) containing:
 
@@ -159,11 +128,11 @@ Write the AI instructions file (e.g., `.cursor/rules/your-workflow.mdc`) contain
 - All phase definitions using your chosen markdown structure (Rule 3)
 - Recognition triggers so AI knows when this workflow is active
 
-#### 8. Create Workflow Diagram
+#### 7. Create Workflow Diagram
 
 Use [Mermaid Live Editor](https://mermaid.live/) showing Stages, transition point, and Phases with internal pattern.
 
-#### 9. Write Human-Readable Article
+#### 8. Write Human-Readable Article
 
 Create a comprehensive guide (like the [Main `AAID` Guide](https://github.com/dawid-dahl-umain/augmented-ai-development/blob/main/docs/aidd-workflow.md)) that teaches developers how to use this workflow. The article should:
 
@@ -178,6 +147,31 @@ Create a comprehensive guide (like the [Main `AAID` Guide](https://github.com/da
 2. **Show before/after** (diagram updates, rules file changes)
 3. **Validate consistency**: If changing one phase, must others change too? (Rules 2 & 3 require consistency within a workflow)
 4. **Ensure philosophical alignment**: Does the improvement maintain `AAID`'s guiding principles?
+
+## Validation Checklists
+
+Once you've created your workflow artifacts (rules file, diagram, article), use these checklists to verify completeness.
+
+### Functional Requirements Validation
+
+**These MUST all pass for a workflow to be considered `AAID`.**
+
+| Rule       | Validation Question                                                            | ✓   |
+| ---------- | ------------------------------------------------------------------------------ | --- |
+| **Rule 1** | Is the transition point from Stages to Phases explicitly documented?           | ☐   |
+| **Rule 2** | Do all phases follow the same internal pattern (visible in workflow diagrams)? | ☐   |
+| **Rule 3** | Do all phases use identical markdown structure in the rules file?              | ☐   |
+
+### Non-Functional Requirements Validation
+
+**These SHOULD be followed to maintain `AAID`'s philosophy and values.**
+
+| Principle                                          | Validation Question                                                          | ✓   |
+| -------------------------------------------------- | ---------------------------------------------------------------------------- | --- |
+| **Principle 1: Technology Agnosticism**            | Does the workflow avoid prescribing specific tools/frameworks/architectures? | ☐   |
+| **Principle 2: Developer Mindset**                 | Does the workflow enforce review checkpoints and incremental progress?       | ☐   |
+| **Principle 3: Standing on Giants' Shoulders**     | Can you identify which established practices influenced this design?         | ☐   |
+| **Principle 4: The Future We're Building Towards** | Does the workflow support rapid, voice-ready human-AI cycles?                | ☐   |
 
 ## Summary
 
