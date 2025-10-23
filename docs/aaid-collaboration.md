@@ -64,12 +64,12 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 
 These principles represent the philosophy and values that guide `AAID`'s design and use. They're not structurally enforced like the core rules, but they define `AAID`'s spirit. A workflow can technically function as `AAID` without following these principles, but it won't embody what `AAID` stands for.
 
-| Principle                                      | What It Means                                              |
-| ---------------------------------------------- | ---------------------------------------------------------- |
-| **Principle 1: Technology Agnosticism**        | Workflows describe _what_, never _how_ with specific tools |
-| **Principle 2: Developer Mindset**             | Engaged comprehension and incremental progress             |
-| **Principle 3: Standing on Giants' Shoulders** | Build on proven methodologies, not AI novelty              |
-| **Principle 4: Optimizing for the Future**     | Design for conversation-speed human orchestration          |
+| Principle                                          | What It Means                                              |
+| -------------------------------------------------- | ---------------------------------------------------------- |
+| **Principle 1: Technology Agnosticism**            | Workflows describe _what_, never _how_ with specific tools |
+| **Principle 2: Developer Mindset**                 | Engaged comprehension and incremental progress             |
+| **Principle 3: Standing on Giants' Shoulders**     | Build on proven methodologies, not AI novelty              |
+| **Principle 4: The Future We're Building Towards** | Design for conversation-speed human orchestration          |
 
 📖 **[Read the complete Guiding Principles →](non-functional-requirements/guiding-principles.md)**
 
@@ -91,12 +91,12 @@ These principles represent the philosophy and values that guide `AAID`'s design 
 
 **These SHOULD be followed to maintain `AAID`'s philosophy and values.**
 
-| Principle                                      | Validation Question                                                          | ✓   |
-| ---------------------------------------------- | ---------------------------------------------------------------------------- | --- |
-| **Principle 1: Technology Agnosticism**        | Does the workflow avoid prescribing specific tools/frameworks/architectures? | ☐   |
-| **Principle 2: Developer Mindset**             | Does the workflow enforce review checkpoints and incremental progress?       | ☐   |
-| **Principle 3: Standing on Giants' Shoulders** | Can you identify which established practices influenced this design?         | ☐   |
-| **Principle 4: Optimizing for the Future**     | Does the workflow support rapid, voice-ready human-AI cycles?                | ☐   |
+| Principle                                          | Validation Question                                                          | ✓   |
+| -------------------------------------------------- | ---------------------------------------------------------------------------- | --- |
+| **Principle 1: Technology Agnosticism**            | Does the workflow avoid prescribing specific tools/frameworks/architectures? | ☐   |
+| **Principle 2: Developer Mindset**                 | Does the workflow enforce review checkpoints and incremental progress?       | ☐   |
+| **Principle 3: Standing on Giants' Shoulders**     | Can you identify which established practices influenced this design?         | ☐   |
+| **Principle 4: The Future We're Building Towards** | Does the workflow support rapid, voice-ready human-AI cycles?                | ☐   |
 
 ## Contributing to AAID
 
@@ -145,7 +145,7 @@ Ensure your workflow embodies `AAID`'s philosophy:
 - **Technology Agnosticism**: Avoid naming specific tools. Focus on what needs to happen, not how.
 - **Developer Mindset**: Include review checkpoints; keep phases incremental.
 - **Standing on Giants' Shoulders**: Base design on proven methodologies; cite the foundations you're building on.
-- **Optimizing for the Future**: Design for rapid human-AI cycles; use simple commands ready for voice input.
+- **The Future We're Building Towards**: Design for rapid human-AI cycles; use simple commands ready for voice input.
 
 #### 6. Validate
 
@@ -194,7 +194,7 @@ Create a comprehensive guide (like the [Main `AAID` Guide](https://github.com/da
 1. **Principle 1: Technology Agnosticism** - Operate at workflow level, not tool level
 2. **Principle 2: Developer Mindset** - Engaged comprehension and incremental progress
 3. **Principle 3: Standing on Giants' Shoulders** - Build on proven methodologies, not AI novelty
-4. **Principle 4: Optimizing for the Future** - Design for conversation-speed human orchestration
+4. **Principle 4: The Future We're Building Towards** - Design for conversation-speed human orchestration
 
 Meet the structural rules → It _is_ an `AAID` workflow ✅  
 Break the structural rules → It's something else ❌

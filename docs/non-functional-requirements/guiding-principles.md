@@ -2,19 +2,19 @@
 
 These principles represent the philosophy and values that guide `AAID`'s design and use. They're not structurally enforced like the core rules, but they define `AAID`'s spirit. A workflow can technically function as `AAID` without following these principles, but it won't embody what `AAID` stands for.
 
-| Principle                                      | What It Means                                              |
-| ---------------------------------------------- | ---------------------------------------------------------- |
-| **Principle 1: Technology Agnosticism**        | Workflows describe _what_, never _how_ with specific tools |
-| **Principle 2: Developer Mindset**             | Engaged comprehension and incremental progress             |
-| **Principle 3: Standing on Giants' Shoulders** | Build on proven methodologies, not AI novelty              |
-| **Principle 4: Optimizing for the Future**     | Design for conversation-speed human orchestration          |
+| Principle                                          | What It Means                                              |
+| -------------------------------------------------- | ---------------------------------------------------------- |
+| **Principle 1: Technology Agnosticism**            | Workflows describe _what_, never _how_ with specific tools |
+| **Principle 2: Developer Mindset**                 | Engaged comprehension and incremental progress             |
+| **Principle 3: Standing on Giants' Shoulders**     | Build on proven methodologies, not AI novelty              |
+| **Principle 4: The Future We're Building Towards** | Design for conversation-speed human orchestration          |
 
 ## Table of Contents
 
 - [Principle 1: Technology Agnosticism](#principle-1-technology-agnosticism)
 - [Principle 2: Developer Mindset](#principle-2-developer-mindset)
 - [Principle 3: Standing on Giants' Shoulders](#principle-3-standing-on-giants-shoulders)
-- [Principle 4: The Future AAID Is Optimizing For](#principle-4-the-future-aaid-is-optimizing-for)
+- [Principle 4: The Future We're Building Towards](#principle-4-the-future-were-building-towards)
 
 ## Principle 1: Technology Agnosticism
 
@@ -86,7 +86,7 @@ This principle ensures `AAID` workflows rest on solid foundations rather than un
 
 ---
 
-## Principle 4: The Future AAID Is Optimizing For
+## Principle 4: The Future We're Building Towards
 
 **The Principle:** `AAID`'s architecture optimizes towards a future where development happens at conversation speed. As AI becomes faster and more reliable, humans will orchestrate through near-instantaneous voice commands: "Go", "Yes", "Use pure functions", "Back", "Refactor". This vision guides `AAID`'s design decisions today.
 
