@@ -86,11 +86,6 @@ graph TD
 
     NextPhase --> Complete["✨ **Complete**<br/><br/>When cycle criteria met"]
 
-    %% Side annotations
-    Rule1["📐 **Rule 1**<br/>Stages vs Phases"]
-    Rule2["📐 **Rule 2**<br/>Internal Phase Pattern"]
-    Rule3["📐 **Rule 3**<br/>Markdown Format"]
-
     %% STYLES
     style Start fill:#f9f9f9,stroke:#333,stroke-width:4px,color:#000
 
@@ -104,10 +99,6 @@ graph TD
     style Review fill:#fff9c4,stroke:#f9a825,stroke-width:3px,color:#000
     style NextPhase fill:#f5f5f5,stroke:#666,stroke-width:2px,color:#000
     style Complete fill:#4caf50,stroke:#2e7d32,stroke-width:4px,color:#fff
-
-    style Rule1 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
-    style Rule2 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
-    style Rule3 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
 ```
 
 **What This Diagram Shows:**
