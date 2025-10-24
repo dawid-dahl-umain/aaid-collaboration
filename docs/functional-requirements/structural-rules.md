@@ -18,15 +18,15 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 
 When it comes to AI agent and human developer interactions, `AAID` workflows operate in two distinct modes:
 
-| Mode       | Behavior                              | Purpose                                 | Example                                         |
-| ---------- | ------------------------------------- | --------------------------------------- | ----------------------------------------------- |
-| **Stages** | Flexible conversation, back-and-forth | Preparation, setup, alignment           | Context Providing, Planning, TDD Initialization |
-| **Phases** | Strict rules, mandatory sequence      | Disciplined execution with verification | RED → GREEN → REFACTOR (in TDD)                 |
+| Mode       | Behavior                              | Purpose               | Codebase Mutations | Example                                         |
+| ---------- | ------------------------------------- | --------------------- | ------------------ | ----------------------------------------------- |
+| **Stages** | Flexible conversation, back-and-forth | Varies by workflow    | Not permitted      | Context Providing, Planning, TDD Initialization |
+| **Phases** | Strict rules, mandatory sequence      | Disciplined execution | Permitted          | Red → Green → Refactor (in TDD)                 |
 
 **Key Distinction:**
 
-- **Stages**: AI interactions are more spontaneous and free-flowing. Natural dialogue, iteration, exploration.
-- **Phases**: AI is instructed to follow hard rules, much like a state machine. Cannot skip steps, must stop for review.
+- **Stages**: AI interactions are more spontaneous and free-flowing. Natural dialogue, iteration, exploration. Codebase mutations not permitted.
+- **Phases**: AI is instructed to follow hard rules, much like a state machine. Cannot skip steps, must stop for review. Codebase mutations permitted with mandatory supervision through review checkpoints.
 
 **The Transition Point:**
 

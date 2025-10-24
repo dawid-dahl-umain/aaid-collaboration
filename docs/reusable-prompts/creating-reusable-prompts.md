@@ -30,11 +30,11 @@ Reusable prompt commands speed up workflows with short triggers (like `/red-&-st
 
 ## Aligning with Your Workflow
 
-**Stage commands** (collaborative): Explicitly trigger planning, research, or context gathering actions
+**Stage commands** (collaborative): Explicitly trigger workflow-specific actions during collaborative mode. Codebase mutations not permitted.
 
 - Example: `/project-context`, `/research-&-stop`
 
-**Phase commands** (disciplined): Redirect AI to strict workflow discipline when it deviates from the rules file
+**Phase commands** (disciplined): Redirect AI to strict workflow discipline when it deviates from the rules file. Codebase mutations permitted with review checkpoints.
 
 - Example: `/red-&-stop`, `/green-&-stop`, `/refactor-&-stop`
 - These reinforce mandatory sequences and review checkpoints
