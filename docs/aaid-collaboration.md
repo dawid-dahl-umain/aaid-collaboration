@@ -43,16 +43,16 @@ Use this document when:
 
 ### Stages (Collaborative Mode)
 
-| Term                   | Definition                                                                                                                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Stage**              | A step in the workflow using collaborative mode where developer and AI interact flexibly (e.g., understanding context, planning, aligning). Codebase mutations not permitted. |
-| **Collaborative Mode** | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. Codebase mutations not permitted.                                          |
+| Term                   | Definition                                                                                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stage**              | A step in the workflow using collaborative mode where developer and AI interact flexibly (e.g., understanding context, planning, aligning).<br /><br />**Codebase mutations not permitted.** |
+| **Collaborative Mode** | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. Codebase mutations not permitted.                                                         |
 
 ### Phases (Disciplined Mode)
 
 | Term                            | Definition                                                                                                                                                                                                                |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Phase Cycle**                 | The sequence of phases that repeat in the disciplined mode (e.g., Red → Green → Refactor in TDD, which cycles for each test). Codebase mutations permitted with mandatory review checkpoints.                             |
+| **Phase Cycle**                 | The sequence of phases that repeat in the disciplined mode (e.g., Red → Green → Refactor in TDD, which cycles for each test).<br /><br />**Codebase mutations permitted with mandatory review checkpoints.**              |
 | **Phase**                       | A single named step in the phase cycle (e.g., Red, Green, Refactor). Each phase has its own purpose but follows the workflow's internal pattern. Phases exist within a Stage (e.g., Stage 4 contains Red/Green/Refactor). |
 | **Internal Phase Pattern**      | The sequential steps that happen INSIDE each individual phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same internal pattern.                                   |
 | **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                   |
