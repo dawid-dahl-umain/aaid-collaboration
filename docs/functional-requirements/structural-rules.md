@@ -5,7 +5,7 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 | Rule                                    | What It Defines                                                                           |
 | --------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Rule 1: Stages vs Phases**            | Two operational modes: flexible collaboration vs strict discipline, with transition point |
-| **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential substeps                          |
+| **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential steps                             |
 | **Rule 3: Instruction Markdown Format** | All phases within a workflow use identical AI instruction format                          |
 
 ## Table of Contents
@@ -50,17 +50,26 @@ This explicit statement tells the AI exactly when to switch from collaborative t
 
 ## Rule 2: Internal Phase Pattern (Within Each Workflow)
 
-**The Rule:** All phases within a single workflow must follow the same internal pattern.
+**The Rule:** All phases within a single workflow must follow the same internal pattern of steps.
 
 **What is "Internal Phase Pattern"?**
 
-The sequential steps AI goes through INSIDE each phase (visible as substeps in workflow diagrams).
+The sequential steps AI executes INSIDE each individual phase. These are the operational steps within a phase (visible as steps in workflow diagrams).
 
-**Important:** Each workflow defines its own pattern. The requirement is internal consistency within that workflow.
+**Important Distinction:**
+
+- **Phase Cycle**: The sequence of phases (e.g., Red → Green → Refactor)
+- **Internal Phase Pattern**: The steps INSIDE each phase (e.g., Collaborate → Verify → Handle Issues → Review)
+
+**Important:** Each workflow defines its own phase cycle AND its own internal pattern. The requirement is internal consistency: all phases in a workflow use the same internal pattern.
 
 **Examples:**
 
-**`AAID` TDD Internal Pattern:**
+**`AAID` TDD:**
+
+_Phase Cycle_: Red → Green → Refactor (repeats for each test)
+
+_Internal Pattern_ (same for all three phases):
 
 ```text
 Collaborate → Verify → Handle Issues → Review
@@ -68,42 +77,37 @@ Collaborate → Verify → Handle Issues → Review
 
 | Phase       | Collaborate          | Verify                            | Handle Issues                 | Review               |
 | ----------- | -------------------- | --------------------------------- | ----------------------------- | -------------------- |
-| 🔴 RED      | Write failing test   | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
-| 🟢 GREEN    | Write minimal code   | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
-| 🧼 REFACTOR | Improve code quality | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
+| 🔴 Red      | Write failing test   | Run test, confirm failure         | If passes unexpectedly → STOP | ⏸️ AWAIT USER REVIEW |
+| 🟢 Green    | Write minimal code   | Run all tests, confirm pass       | If any fail → STOP            | ⏸️ AWAIT USER REVIEW |
+| 🧼 Refactor | Improve code quality | Run all tests, confirm still pass | If any break → STOP           | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` AT (Acceptance Testing) Internal Pattern:**
+**`AAID` AT (Acceptance Testing):**
+
+_Phase Cycle_: Spec & DSL → Driver Implementation → Refactor
+
+_Internal Pattern_ (same for all three phases):
 
 ```text
 Collaborate → Verify → Handle Issues → Review
 ```
 
-| Phase      | Collaborate                 | Verify                        | Handle Issues                | Review               |
-| ---------- | --------------------------- | ----------------------------- | ---------------------------- | -------------------- |
-| 🔴 Phase 1 | Map BDD to DSL              | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
-| 🟢 Phase 2 | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
-| 🧼 Phase 3 | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| Phase                    | Collaborate                 | Verify                        | Handle Issues                | Review               |
+| ------------------------ | --------------------------- | ----------------------------- | ---------------------------- | -------------------- |
+| 🔴 Spec & DSL            | Map BDD to DSL              | Spec must fail                | If passes unexpectedly → fix | ⏸️ AWAIT USER REVIEW |
+| 🟢 Driver Implementation | Implement driver            | Specs pass or report failures | If broken → fix              | ⏸️ AWAIT USER REVIEW |
+| 🧼 Refactor              | Refine & validate isolation | Tests still green             | If broken → fix              | ⏸️ AWAIT USER REVIEW |
 
-**`AAID` Refactoring might use a different pattern:**
+**`AAID` Refactoring (hypothetical):**
+
+_Phase Cycle_: Find Seam → Characterize → Transform
+
+_Internal Pattern_ (same for all three phases):
 
 ```text
-Seam → Characterize → Verify → Transform
+Locate → Isolate → Validate → Review
 ```
 
-(This is hypothetical; the point is each workflow can define its own structure)
-
-**The Requirement:**
-
-- TDD's three phases all use TDD's pattern ✅
-- AT's three phases all use AT's pattern ✅
-- Refactoring's phases would all use Refactoring's pattern ✅
-- Mixing different patterns within one workflow ❌
-
-**Why This Matters:**
-
-- Creates predictable rhythm for developers
-- Allows visual diagrams to show repeating patterns
-- Makes phases feel consistent
+(This demonstrates that each workflow can define both its own phase cycle AND its own internal pattern)
 
 ---
 

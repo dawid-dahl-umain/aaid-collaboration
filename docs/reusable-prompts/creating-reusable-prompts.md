@@ -39,7 +39,7 @@ Reusable prompt commands speed up workflows with short triggers (like `/red-&-st
 - Example: `/red-&-stop`, `/green-&-stop`, `/refactor-&-stop`
 - These reinforce mandatory sequences and review checkpoints
 
-Phase commands should reflect your workflow's internal phase pattern. If phases follow `Collaborate → Verify → Handle Issues → Review`, structure commands to match those substeps.
+Phase commands should reflect your workflow's internal phase pattern. If phases follow `Collaborate → Verify → Handle Issues → Review`, structure commands to match those steps.
 
 ## Design Guidelines
 

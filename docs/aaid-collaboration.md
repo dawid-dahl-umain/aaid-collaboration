@@ -4,6 +4,7 @@
 
 - [Purpose](#purpose)
 - [Glossary (Ubiquitous Language)](#glossary-ubiquitous-language)
+- [AAID Workflow Structure (Meta-Diagram)](#aaid-workflow-structure-meta-diagram)
 - [📐 Structural Rules (Functional Requirements)](#structural-rules-functional-requirements)
 - [🎯 AAID Guiding Principles (Non-Functional Requirements)](#aaid-guiding-principles-non-functional-requirements)
 - [⚡ Creating Reusable Prompts (Optional)](#creating-reusable-prompts-optional)
@@ -31,20 +32,98 @@ Use this document when:
 
 ## Glossary (Ubiquitous Language)
 
-| Term                            | Definition                                                                                                                                                                                                                   |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **`AAID` Workflow**             | A complete development process (like TDD or Acceptance Testing) that follows the structural rules and guiding principles. Contains both Stages and Phases.                                                                   |
-| **Stage**                       | A step in the workflow using collaborative mode where developer and AI have flexible, conversational back-and-forth to understand, plan, and align.                                                                          |
-| **Phase**                       | A step in the workflow using disciplined mode where AI follows strict rules, mandatory sequences, and must stop for review after each phase. Phases exist within a Stage (e.g., Stage 4 contains RED/GREEN/REFACTOR phases). |
-| **Internal Phase Pattern**      | The sequential substeps that happen inside each phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same pattern.                                                       |
-| **Transition Point**            | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules.                                 |
-| **Collaborative Mode**          | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. AI can iterate freely with the developer.                                                                                 |
-| **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                      |
-| **Markdown Instruction Format** | The documentation template structure used in the rules file to teach AI what to do in each phase (e.g., Triggers, Core Principle, Instructions, etc.). Must be identical for all phases within a workflow.                   |
-| **Rules File**                  | The markdown document (like `.cursor/rules/aaid.mdc`) that contains instructions for the AI, defining the workflow sequence, phases, and behavioral rules.                                                                   |
-| **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                             |
-| **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                           |
-| **Workflow Diagram**            | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                                                         |
+### Core Workflow Concepts
+
+| Term                 | Definition                                                                                                                                                                                   |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`AAID` Workflow**  | A complete development process (like TDD or Acceptance Testing) that follows the structural rules and guiding principles. Contains both Stages and Phases.                                   |
+| **Workflow Diagram** | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                         |
+| **Rules File**       | The markdown document (like `.cursor/rules/aaid.mdc`) that contains instructions for the AI, defining the workflow sequence, phases, and behavioral rules.                                   |
+| **Transition Point** | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules. |
+
+### Stages (Collaborative Mode)
+
+| Term                   | Definition                                                                                                                                          |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stage**              | A step in the workflow using collaborative mode where developer and AI have flexible, conversational back-and-forth to understand, plan, and align. |
+| **Collaborative Mode** | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. AI can iterate freely with the developer.        |
+
+### Phases (Disciplined Mode)
+
+| Term                            | Definition                                                                                                                                                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Phase Cycle**                 | The sequence of phases that repeat in the disciplined mode (e.g., Red → Green → Refactor in TDD, which cycles for each test). The named phases in the workflow's disciplined mode.                                        |
+| **Phase**                       | A single named step in the phase cycle (e.g., Red, Green, Refactor). Each phase has its own purpose but follows the workflow's internal pattern. Phases exist within a Stage (e.g., Stage 4 contains Red/Green/Refactor). |
+| **Internal Phase Pattern**      | The sequential steps that happen INSIDE each individual phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same internal pattern.                                   |
+| **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                   |
+| **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                          |
+| **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                        |
+| **Markdown Instruction Format** | The documentation template structure used in the rules file to teach AI what to do in each phase (e.g., Triggers, Core Principle, Instructions, etc.). Must be identical for all phases within a workflow.                |
+
+## AAID Workflow Structure (Meta-Diagram)
+
+This abstract diagram shows the structural requirements that any AAID workflow must follow. Each workflow implementation defines its own specific stages, phases, and internal patterns within this framework.
+
+```mermaid
+graph TD
+    Start["🚀 **Any AAID Workflow**"]
+
+    Start --> CollabZone["**COLLABORATIVE MODE**<br/><br/><i>Stages 1 through N</i><br/><br/>Flexible, conversational interaction<br/>Number and purpose varies by workflow"]
+
+    CollabZone --> Transition["⚡ **TRANSITION POINT**<br/><br/>Explicitly documented switch<br/>from collaborative to disciplined mode"]
+
+    Transition --> DisciplinedZone["**DISCIPLINED MODE**<br/><br/><i>Stage X: Phase Cycle</i><br/><br/>Strict rules, mandatory sequences<br/>Review checkpoints enforced"]
+
+    DisciplinedZone --> PhaseCycle["**Phase Cycle**<br/><br/>Contains 2+ phases<br/><i>Number and names vary by workflow</i>"]
+
+    PhaseCycle --> PhaseBox["**Each Phase**"]
+
+    PhaseBox --> Pattern["**Internal Pattern**<br/><br/>Sequential steps that all phases follow<br/><i>(Same pattern for all phases in workflow)</i><br/><br/>Step 1 → Step 2 → ... → Review ⏸️"]
+
+    Pattern --> Review{"User<br/>Review"}
+    Review -->|Reject| Pattern
+    Review -->|Approve| NextPhase["Next Phase<br/>or<br/>Cycle Repeat"]
+
+    NextPhase --> Complete["✨ **Complete**<br/><br/>When cycle criteria met"]
+
+    %% Side annotations
+    Rule1["📐 **Rule 1**<br/>Stages vs Phases"]
+    Rule2["📐 **Rule 2**<br/>Internal Phase Pattern"]
+    Rule3["📐 **Rule 3**<br/>Markdown Format"]
+
+    %% STYLES
+    style Start fill:#f9f9f9,stroke:#333,stroke-width:4px,color:#000
+
+    style CollabZone fill:#e3f2fd,stroke:#1976d2,stroke-width:4px,color:#000
+    style Transition fill:#ffd54f,stroke:#f57c00,stroke-width:5px,color:#000
+    style DisciplinedZone fill:#f3e5f5,stroke:#7b1fa2,stroke-width:4px,color:#000
+
+    style PhaseCycle fill:#e1bee7,stroke:#7b1fa2,stroke-width:3px,color:#000
+    style PhaseBox fill:#fff9c4,stroke:#666,stroke-width:2px,color:#000
+    style Pattern fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+    style Review fill:#fff9c4,stroke:#f9a825,stroke-width:3px,color:#000
+    style NextPhase fill:#f5f5f5,stroke:#666,stroke-width:2px,color:#000
+    style Complete fill:#4caf50,stroke:#2e7d32,stroke-width:4px,color:#fff
+
+    style Rule1 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
+    style Rule2 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
+    style Rule3 fill:#fff,stroke:#333,stroke-width:1px,stroke-dasharray: 5 5,color:#000
+```
+
+**What This Diagram Shows:**
+
+- **Collaborative Mode**: Flexible stages for preparation and alignment (number and purpose varies)
+- **Transition Point**: Explicit switch to disciplined mode (Rule 1)
+- **Disciplined Mode**: Phase cycle with strict rules and review checkpoints
+- **Phase Cycle**: Multiple phases that repeat until work is complete
+- **Internal Pattern**: Same sequential steps inside every phase (Rule 2)
+- **Review Checkpoints**: Mandatory stops for user approval in every phase
+
+Each AAID workflow (TDD, Acceptance Testing, Refactoring, etc.) implements this structure with its own specific:
+
+- Collaborative stage purposes
+- Phase cycle names and count
+- Internal pattern steps
 
 <a id="structural-rules-functional-requirements"></a>
 
@@ -55,7 +134,7 @@ These rules define the observable architecture of `AAID` workflows, visible in r
 | Rule                                    | What It Defines                                                                           |
 | --------------------------------------- | ----------------------------------------------------------------------------------------- |
 | **Rule 1: Stages vs Phases**            | Two operational modes: flexible collaboration vs strict discipline, with transition point |
-| **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential substeps                          |
+| **Rule 2: Internal Phase Pattern**      | All phases within a workflow follow the same sequential steps                             |
 | **Rule 3: Instruction Markdown Format** | All phases within a workflow use identical AI instruction format                          |
 
 📖 **[Read the guide on Structural Rules →](functional-requirements/structural-rules.md)**
@@ -108,7 +187,7 @@ Design your workflow architecture:
 
 - **Rule 2: Design Internal Phase Pattern**
 
-  - Define the sequential substeps inside each phase: `[Step 1] → [Step 2] → [Step 3] → ...`
+  - Define the sequential steps inside each phase: `[Step 1] → [Step 2] → [Step 3] → ...`
   - This pattern must be identical for all phases in your workflow
 
 - **Rule 3: Choose Phase Markdown Structure**
