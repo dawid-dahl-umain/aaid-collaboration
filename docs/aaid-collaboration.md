@@ -70,7 +70,7 @@ graph TD
 
     Start --> CollabZone["**COLLABORATIVE MODE**<br/><br/><i>Stages 1 through N</i><br/><br/>Flexible, conversational interaction<br/>Number and purpose varies by workflow"]
 
-    Ex1["<i>TDD example:</i><br/>Context → Planning<br/>→ Test List"]
+    Ex1["<i>TDD example:</i><br/>Stage 1: Context<br/>Stage 2: Planning<br/>Stage 3: TDD Begins<br/>Stage 4: TDD Cycle"]
     CollabZone -.- Ex1
 
     CollabZone --> Transition["⚡ **TRANSITION POINT**<br/><br/>Explicitly documented switch<br/>from collaborative to disciplined mode"]
@@ -79,7 +79,7 @@ graph TD
 
     DisciplinedZone --> PhaseCycle["**Phase Cycle**<br/><br/>Contains 2+ phases<br/><i>Number and names vary by workflow</i>"]
 
-    Ex2["<i>TDD example:</i><br/>Red → Green<br/>→ Refactor"]
+    Ex2["<i>TDD example:</i><br/>Red → Green → Refactor<br/>(repeats for each test)"]
     PhaseCycle -.- Ex2
 
     PhaseCycle --> PhaseBox["**Each Phase**"]
@@ -117,7 +117,7 @@ graph TD
 **What This Diagram Shows:**
 
 - **Collaborative Mode**: Flexible stages (purpose varies by workflow); codebase mutations not permitted
-  - _TDD example: Context Providing → Planning → Test List Creation_
+  - _TDD example: Stages 1-4, with 1 (Context), 2 (Planning), 3 (Test List) collaborative, then transition to 4 (TDD Cycle) disciplined_
 - **Transition Point**: Explicit switch to disciplined mode where codebase mutations become permitted (Rule 1)
 - **Disciplined Mode**: Phase cycle with strict rules, review checkpoints, and supervised codebase mutations
 - **Phase Cycle**: Multiple phases that repeat until work is complete
