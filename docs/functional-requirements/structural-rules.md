@@ -99,13 +99,19 @@ Collaborate → Verify → Handle Issues → Review
 
 **`AAID` Refactoring (hypothetical):**
 
-_Phase Cycle_: Find Seam → Characterize → Transform
+_Phase Cycle_: Secure → Isolate → Transform
 
 _Internal Pattern_ (same for all three phases):
 
 ```text
-Locate → Isolate → Validate → Review
+Collaborate → Implement → Verify → Review
 ```
+
+| Phase        | Collaborate                   | Implement                          | Verify           | Review               |
+| ------------ | ----------------------------- | ---------------------------------- | ---------------- | -------------------- |
+| 🔒 Secure    | Plan characterization tests   | Write tests for current behavior   | Tests pass       | ⏸️ AWAIT USER REVIEW |
+| 🔧 Isolate   | Identify dependencies & seams | Break dependencies, add interfaces | Tests still pass | ⏸️ AWAIT USER REVIEW |
+| ✨ Transform | Plan refactoring steps        | Make code changes                  | Tests still pass | ⏸️ AWAIT USER REVIEW |
 
 (This demonstrates that each workflow can define both its own phase cycle AND its own internal pattern)
 
