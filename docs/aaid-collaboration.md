@@ -70,15 +70,24 @@ graph TD
 
     Start --> CollabZone["**COLLABORATIVE MODE**<br/><br/><i>Stages 1 through N</i><br/><br/>Flexible, conversational interaction<br/>Number and purpose varies by workflow"]
 
+    Ex1["<i>TDD example:</i><br/>Context → Planning<br/>→ Test List"]
+    CollabZone -.- Ex1
+
     CollabZone --> Transition["⚡ **TRANSITION POINT**<br/><br/>Explicitly documented switch<br/>from collaborative to disciplined mode"]
 
     Transition --> DisciplinedZone["**DISCIPLINED MODE**<br/><br/><i>Stage X: Phase Cycle</i><br/><br/>Strict rules, mandatory sequences<br/>Review checkpoints enforced"]
 
     DisciplinedZone --> PhaseCycle["**Phase Cycle**<br/><br/>Contains 2+ phases<br/><i>Number and names vary by workflow</i>"]
 
+    Ex2["<i>TDD example:</i><br/>Red → Green<br/>→ Refactor"]
+    PhaseCycle -.- Ex2
+
     PhaseCycle --> PhaseBox["**Each Phase**"]
 
     PhaseBox --> Pattern["**Internal Pattern**<br/><br/>Sequential steps that all phases follow<br/><i>(Same pattern for all phases in workflow)</i><br/><br/>Step 1 → Step 2 → ... → Review ⏸️"]
+
+    Ex3["<i>TDD example:</i><br/>Collaborate → Verify<br/>→ Handle Issues → Review"]
+    Pattern -.- Ex3
 
     Pattern --> Review{"User<br/>Review"}
     Review -->|Reject| Pattern
@@ -99,15 +108,22 @@ graph TD
     style Review fill:#fff9c4,stroke:#f9a825,stroke-width:3px,color:#000
     style NextPhase fill:#f5f5f5,stroke:#666,stroke-width:2px,color:#000
     style Complete fill:#4caf50,stroke:#2e7d32,stroke-width:4px,color:#fff
+
+    style Ex1 fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,stroke-dasharray: 5 5,color:#2e7d32
+    style Ex2 fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,stroke-dasharray: 5 5,color:#2e7d32
+    style Ex3 fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,stroke-dasharray: 5 5,color:#2e7d32
 ```
 
 **What This Diagram Shows:**
 
 - **Collaborative Mode**: Flexible stages (purpose varies by workflow); codebase mutations not permitted
+  - _TDD example: Context Providing → Planning → Test List Creation_
 - **Transition Point**: Explicit switch to disciplined mode where codebase mutations become permitted (Rule 1)
 - **Disciplined Mode**: Phase cycle with strict rules, review checkpoints, and supervised codebase mutations
 - **Phase Cycle**: Multiple phases that repeat until work is complete
+  - _TDD example: Red → Green → Refactor (repeats for each test)_
 - **Internal Pattern**: Same sequential steps inside every phase (Rule 2)
+  - _TDD example: Collaborate → Verify → Handle Issues → Review_
 - **Review Checkpoints**: Mandatory stops for user approval before proceeding to next phase
 
 Each AAID workflow (TDD, Acceptance Testing, Refactoring, etc.) implements this structure with its own specific:
