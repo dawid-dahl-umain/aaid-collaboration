@@ -40,25 +40,26 @@ Use this document when:
 | **Workflow Diagram** | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                         |
 | **Rules File**       | The markdown document (like `.cursor/rules/aaid.mdc`) that contains instructions for the AI, defining the workflow sequence, phases, and behavioral rules.                                   |
 | **Transition Point** | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules. |
+| **AAID Artifacts**   | Supporting documents created during AAID workflows (e.g., roadmaps, test lists, planning docs) that guide development but are not part of the application codebase itself.                   |
 
 ### Stages (Collaborative Mode)
 
-| Term                   | Definition                                                                                                                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Stage**              | A step in the workflow using collaborative mode where developer and AI interact flexibly (e.g., understanding context, planning, aligning).<br /><br />**Codebase mutations not permitted.** |
-| **Collaborative Mode** | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. Codebase mutations not permitted.                                                         |
+| Term                   | Definition                                                                                                                                                                                                          |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Stage**              | A step in the workflow using collaborative mode where developer and AI interact flexibly (e.g., understanding context, planning, aligning).<br /><br />**Application codebase mutations not permitted.**            |
+| **Collaborative Mode** | The operational mode during Stages where AI behavior is flexible, conversational, and exploratory. **Application codebase mutations not permitted.** AAID artifacts (roadmaps, test lists) may be created/modified. |
 
 ### Phases (Disciplined Mode)
 
-| Term                            | Definition                                                                                                                                                                                                                |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Phase Cycle**                 | The sequence of phases that repeat in the disciplined mode (e.g., Red → Green → Refactor in TDD, which cycles for each test).<br /><br />**Codebase mutations permitted with mandatory review checkpoints.**              |
-| **Phase**                       | A single named step in the phase cycle (e.g., Red, Green, Refactor). Each phase has its own purpose but follows the workflow's internal pattern. Phases exist within a Stage (e.g., Stage 4 contains Red/Green/Refactor). |
-| **Internal Phase Pattern**      | The sequential steps that happen INSIDE each individual phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same internal pattern.                                   |
-| **State Machine Mode**          | The operational mode during Phases where AI behavior is strict and rule-enforced. AI must follow exact sequences and cannot skip steps. Also called "disciplined mode".                                                   |
-| **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                          |
-| **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                        |
-| **Markdown Instruction Format** | The documentation template structure used in the rules file to teach AI what to do in each phase (e.g., Triggers, Core Principle, Instructions, etc.). Must be identical for all phases within a workflow.                |
+| Term                            | Definition                                                                                                                                                                                                                             |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Phase Cycle**                 | The sequence of phases that repeat in the disciplined mode (e.g., Red → Green → Refactor in TDD, which cycles for each test).<br /><br />**Application codebase mutations permitted with mandatory review checkpoints.**               |
+| **Phase**                       | A single named step in the phase cycle (e.g., Red, Green, Refactor). Each phase has its own purpose but follows the workflow's internal pattern. Phases exist within a Stage (e.g., Stage 4 contains Red/Green/Refactor).              |
+| **Internal Phase Pattern**      | The sequential steps that happen INSIDE each individual phase (e.g., `Collaborate → Verify → Handle Issues → Review`). All phases within a workflow must use the same internal pattern.                                                |
+| **Disciplined Mode**            | The operational mode during Phases where AI behavior is strict and rule-enforced, like a state machine. AI must follow exact sequences and cannot skip steps. **Application codebase mutations permitted with mandatory supervision.** |
+| **Review Checkpoint**           | A mandatory stop point where AI must present work and wait for developer approval before proceeding. Marked as `⏸️ AWAIT USER REVIEW` in phases.                                                                                       |
+| **Verification**                | The step where AI executes commands on the developer's system to confirm success (e.g., running tests, building code). Produces concrete pass/fail results, not just AI reasoning.                                                     |
+| **Markdown Instruction Format** | The documentation template structure used in the rules file to teach AI what to do in each phase (e.g., Triggers, Core Principle, Instructions, etc.). Must be identical for all phases within a workflow.                             |
 
 ## AAID Workflow Structure (Meta-Diagram)
 
@@ -116,10 +117,10 @@ graph TD
 
 **What This Diagram Shows:**
 
-- **Collaborative Mode**: Flexible stages (purpose varies by workflow); codebase mutations not permitted
+- **Collaborative Mode**: Flexible stages (purpose varies by workflow); application codebase mutations not permitted, but AAID artifacts (roadmaps, test lists) may be created
   - _TDD example: Stages 1-4, with 1 (Context), 2 (Planning), 3 (Test List) collaborative, then transition to 4 (TDD Cycle) disciplined_
-- **Transition Point**: Explicit switch to disciplined mode where codebase mutations become permitted (Rule 1)
-- **Disciplined Mode**: Phase cycle with strict rules, review checkpoints, and supervised codebase mutations
+- **Transition Point**: Explicit switch to disciplined mode where application codebase mutations become permitted (Rule 1)
+- **Disciplined Mode**: Phase cycle with strict rules, review checkpoints, and supervised application codebase mutations
 - **Phase Cycle**: Multiple phases that repeat until work is complete
   - _TDD example: Red → Green → Refactor (repeats for each test)_
 - **Internal Pattern**: Same sequential steps inside every phase (Rule 2)
