@@ -40,7 +40,7 @@ Use this document when:
 | **Workflow Diagram** | A visual representation (usually Mermaid) showing the flow of Stages, the transition point, and Phases with their internal patterns.                                                         |
 | **Rules File**       | The markdown document (like `.cursor/rules/aaid.mdc`) that contains instructions for the AI, defining the workflow sequence, phases, and behavioral rules.                                   |
 | **Transition Point** | The explicit moment documented in the rules file where the workflow shifts from collaborative Stages to disciplined Phases. Must be clearly stated so AI knows when to enforce strict rules. |
-| **AAID Artifacts**   | Supporting documents created during AAID workflows (e.g., roadmaps, test lists, planning docs) that guide development but are not part of the application codebase itself.                   |
+| **AAID Artifacts**   | Supporting documents created during AAID workflows (e.g., roadmap planning files, test lists) that guide development but are not part of the application codebase itself.                    |
 
 ### Stages (Collaborative Mode)
 
