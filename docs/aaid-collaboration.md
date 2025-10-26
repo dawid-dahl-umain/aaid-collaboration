@@ -115,18 +115,6 @@ graph TD
     style Ex3 fill:#e8f5e9,stroke:#4caf50,stroke-width:2px,stroke-dasharray: 5 5,color:#2e7d32
 ```
 
-**What This Diagram Shows:**
-
-- **Collaborative Mode**: Flexible stages (purpose varies by workflow); application codebase mutations not permitted, but AAID artifacts (roadmaps, test lists) may be created
-  - _TDD example: Stages 1-4, with 1 (Context), 2 (Planning), 3 (Test List) collaborative, then transition to 4 (TDD Cycle) disciplined_
-- **Transition Point**: Explicit switch to disciplined mode where application codebase mutations become permitted (Rule 1)
-- **Disciplined Mode**: Phase cycle with strict rules, review checkpoints, and supervised application codebase mutations
-- **Phase Cycle**: Multiple phases that repeat until work is complete
-  - _TDD example: Red → Green → Refactor (repeats for each test)_
-- **Internal Pattern**: Same sequential steps inside every phase (Rule 2)
-  - _TDD example: Collaborate → Verify → Handle Issues → Review_
-- **Review Checkpoints**: Mandatory stops for user approval before proceeding to next phase
-
 Each AAID workflow (TDD, Acceptance Testing, Refactoring, etc.) implements this structure with its own specific:
 
 - Collaborative stage purposes
