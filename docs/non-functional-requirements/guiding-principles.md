@@ -66,13 +66,15 @@ This principle separates professional `AAID` development from "vibe coding" wher
 
 **Foundations AAID Builds On:**
 
-- **Kent Beck**: TDD cycles, incremental development
-- **Robert C. Martin**: Three Laws of TDD, clean code principles
-- **Dave Farley**: Continuous Delivery, four-layer acceptance testing
-- **Daniel Terhorst-North**: Behavior-Driven Development methodology
-- **Martin Fowler**: Refactoring, evolutionary design, Domain-Specific Languages
-- **Aslak Hellesøy**: Gherkin syntax for executable specifications
-- **DORA Research**: Developer-owned testing, small batches, deployment metrics
+- **Kent Beck**'s TDD cycles
+- **Dave Farley**'s Continuous Delivery and four-layer acceptance testing model
+- **Robert C. Martin**'s Three Laws of TDD
+- **Daniel Terhorst-North**'s Behavior-Driven Development (BDD) methodology
+- **Gojko Adzic**'s Specification by Example methodology
+- **Aslak Hellesøy**'s BDD and Gherkin syntax for executable specifications
+- **Eric Evans**'s Domain-Driven Design and Ubiquitous Language
+- **Martin Fowler**'s work on refactoring, evolutionary design, and Domain-Specific Languages
+- And more.
 
 **In Practice:**
 
